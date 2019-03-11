@@ -1,0 +1,12 @@
+DirectoryIndex kupitbusnowboard.html index.htm index.html index.php
+
+RewriteEngine on
+RewriteBase /
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^.]+)\.html\ HTTP
+RewriteRule ^([^.]+)\.html$ http://doskiroom.ru/$1 [R=301,L]
+RewriteCond %{REQUEST_URI} !(\.[^./]+)$
+RewriteCond %{REQUEST_fileNAME} !-d
+RewriteCond %{REQUEST_fileNAME} !-f
+RewriteRule (.*) /$1.html [L]
+RewriteCond %{HTTP_HOST} ^www.doskiroom.ru
+RewriteRule ^(.*)$ http://doskiroom.ru/$1 [R=permanent,L]
